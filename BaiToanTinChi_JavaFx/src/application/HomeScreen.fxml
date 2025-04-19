@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<GridPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="508.0" prefWidth="794.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.HomeController">
+	<columnConstraints>
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="794.4" minWidth="10.0" prefWidth="794.4" />
+		<ColumnConstraints hgrow="SOMETIMES" maxWidth="393.199951171875" minWidth="0.0" prefWidth="0.0" />
+	</columnConstraints>
+	<rowConstraints>
+		<RowConstraints />
+		<RowConstraints maxHeight="161.8000244140625" minHeight="0.0" prefHeight="48.19999923706055" vgrow="SOMETIMES" />
+		<RowConstraints maxHeight="459.20000076293945" minHeight="10.0" prefHeight="459.20000076293945" vgrow="SOMETIMES" />
+	</rowConstraints>
+	<children>
+		<HBox alignment="CENTER" prefHeight="54.0" prefWidth="693.0" style="-fx-background-color: yellow;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+			<children>
+				<Label alignment="CENTER" contentDisplay="RIGHT" text="ỨNG DỤNG QUẢN LÝ SINH VIÊN" textFill="#003cf2">
+					<font>
+						<Font name="System Bold" size="18.0" />
+					</font>
+				</Label>
+			</children>
+		</HBox>
+      <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" GridPane.rowIndex="2">
+        <tabs>
+          <Tab text="Người dùng">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="443.0">
+                     <children>
+                  		<TableView fx:id="userListTableView" onMouseClicked="#onRowClick" prefHeight="431.0" prefWidth="534.0">
+                  			<columns>
+                  				<TableColumn fx:id="user_code_col" prefWidth="82.39999234676361" text="Mã sinh viên" />
+                  				<TableColumn fx:id="fullname_col" prefWidth="105.60001373291016" text="Họ tên" />
+                  				<TableColumn fx:id="address_col" prefWidth="174.39996337890625" text="Địa chỉ" />
+                  				<TableColumn fx:id="class_col" prefWidth="159.20001831054685" text="Tên lớp" />
+                  			</columns>
+                  		</TableView>
+                  		<VBox prefHeight="473.0" prefWidth="274.0">
+                  			<children>
+                  				<Label prefHeight="17.0" prefWidth="159.0" text="Thông tin chi tiết">
+                  					<font>
+                  						<Font name="System Bold" size="18.0" />
+                  					</font>
+                  					<VBox.margin>
+                  						<Insets bottom="10.0" />
+                  					</VBox.margin>
+                  				</Label>
+                  				<VBox prefWidth="258.0">
+                  					<children>
+                  						<Label text="Họ Tên" textFill="#0000009b">
+                  							<VBox.margin>
+                  								<Insets bottom="5.0" />
+                  							</VBox.margin>
+                  						</Label>
+                  						<TextField fx:id="fullnameTextField" />
+                  					</children>
+                  					<VBox.margin>
+                  						<Insets bottom="10.0" />
+                  					</VBox.margin>
+                  				</VBox>
+                  				<VBox layoutX="20.0" layoutY="51.0" prefWidth="258.0">
+                  					<children>
+                  						<Label text="Địa chỉ" textFill="#0000009b">
+                  							<VBox.margin>
+                  								<Insets bottom="5.0" />
+                  							</VBox.margin>
+                  						</Label>
+                  						<TextField fx:id="addressTextField" />
+                  					</children>
+                  					<VBox.margin>
+                  						<Insets bottom="10.0" />
+                  					</VBox.margin>
+                  				</VBox>
+                              <VBox prefWidth="258.0">
+                                 <children>
+                                    <Label text="Tên lớp" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="classTextField" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                  				<VBox prefWidth="258.0">
+                  					<children>
+                  						<Label text="Mật khẩu đăng nhập" textFill="#0000009b">
+                  							<VBox.margin>
+                  								<Insets bottom="5.0" />
+                  							</VBox.margin>
+                  						</Label>
+                  						<TextField fx:id="passwordTextField" />
+                  					</children>
+                  					<VBox.margin>
+                  						<Insets bottom="10.0" />
+                  					</VBox.margin>
+                  				</VBox>
+                  				<VBox layoutX="20.0" layoutY="104.0" prefWidth="258.0">
+                  					<children>
+                  						<Label text="Phân loại" textFill="#0000009b">
+                  							<VBox.margin>
+                  								<Insets bottom="5.0" />
+                  							</VBox.margin>
+                  						</Label>
+                  						<HBox alignment="CENTER_LEFT" prefWidth="200.0" spacing="10.0" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                  							<children>
+                  								<RadioButton fx:id="studentRadioButton" text="Sinh viên">
+                  									<toggleGroup>
+                  										<ToggleGroup fx:id="userTypeGroup" />
+                  									</toggleGroup>
+                  								</RadioButton>
+                  								<RadioButton fx:id="lecturerRadioButton" text="Giảng viên" toggleGroup="$userTypeGroup" />
+                  							</children>
+                  						</HBox>
+                  					</children>
+                  					<VBox.margin>
+                  						<Insets bottom="10.0" />
+                  					</VBox.margin>
+                  				</VBox>
+                  				<HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                  					<children>
+                  						<Button mnemonicParsing="false" onMouseClicked="#onClickAddButton" prefHeight="26.0" prefWidth="74.0" text="Thêm" />
+                  						<Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickUpdateButton" prefHeight="26.0" prefWidth="82.0" text="Cập nhật" />
+                  						<Button layoutX="56.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickDeleteButton" prefHeight="26.0" prefWidth="77.0" text="Xóa" />
+                  					</children>
+                  					<opaqueInsets>
+                  						<Insets />
+                  					</opaqueInsets>
+                  				</HBox>
+                  			</children>
+                  			<padding>
+                  				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                  			</padding>
+                  		</VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab text="Môn học">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="443.0">
+                     <children>
+                        <TableView fx:id="subjectListTableView" onMouseClicked="#onRowSubjectTableClick" prefHeight="431.0" prefWidth="534.0">
+                           <columns>
+                              <TableColumn fx:id="subject_code_col" prefWidth="51.19998013973236" text="Mã môn học" />
+                              <TableColumn fx:id="subject_name_col" prefWidth="104.8000259399414" text="Tên môn học" />
+                              <TableColumn fx:id="credit_col" prefWidth="71.20001220703125" text="Số tín chỉ" />
+                              <TableColumn fx:id="attendance_exam_mark_col" prefWidth="52.79998779296875" text="Hệ số điểm chuyên cần" />
+                              <TableColumn fx:id="exam_mark_1_col" prefWidth="51.20001220703125" text="Hệ số điểm 1" />
+                              <TableColumn fx:id="exam_mark_2_col" prefWidth="58.4000244140625" text="Hệ số điểm 2" />
+                              <TableColumn fx:id="exam_mark_3_col" prefWidth="65.5999755859375" text="Hệ số điểm 3" />
+                              <TableColumn fx:id="final_exam_mark_col" prefWidth="67.19998168945312" text="Hệ số điểm cuối kỳ" />
+                           </columns>
+                        </TableView>
+                        <VBox prefHeight="473.0" prefWidth="274.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="159.0" text="Thông tin chi tiết">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox prefWidth="258.0">
+                                 <children>
+                                    <Label text="Tên môn học" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="subjectNameTextField" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox layoutX="20.0" layoutY="51.0" prefWidth="258.0">
+                                 <children>
+                                    <Label text="Số tín chỉ" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="creditTextField" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <VBox prefWidth="258.0">
+                                       <children>
+                                          <Label text="Hệ số điểm chuyên cần" textFill="#0000009b">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="attandenceMarkTextField" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Hệ số điểm 1" textFill="#0000009b">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="examMark1TextField" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox layoutX="20.0" layoutY="233.0" prefWidth="258.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefWidth="258.0">
+                                             <children>
+                                                <Label text="Hệ số điểm 2" textFill="#0000009b">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="examMark2TextField" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefWidth="258.0">
+                                             <children>
+                                                <Label text="Hệ số điểm 3" textFill="#0000009b">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="examMark3TextField" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Hệ số điểm cuối kỳ" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="finalMarkTextField" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#onClickAddSubjectButton" prefHeight="26.0" prefWidth="74.0" text="Thêm" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickUpdateSubjectButton" prefHeight="26.0" prefWidth="82.0" text="Cập nhật" />
+                                    <Button layoutX="56.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickDeleteSubjectButton" prefHeight="26.0" prefWidth="77.0" text="Xóa" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+            <Tab text="Quản lý điểm">
+               <content>
+                  <HBox prefHeight="100.0" prefWidth="443.0">
+                     <children>
+                        <TableView fx:id="managerListTableView" onMouseClicked="#onRowSubjectTableClick" prefHeight="431.0" prefWidth="534.0">
+                           <columns>
+                              <TableColumn fx:id="manager_user_code_col" prefWidth="79.19998013973236" text="Mã sinh viên" />
+                              <TableColumn fx:id="manager_subject_code_col" prefWidth="81.60001373291016" text="Mã môn học" />
+                              <TableColumn fx:id="manager_attendance_mark_col" prefWidth="105.5999755859375" text="Điểm chuyên cần" />
+                              <TableColumn fx:id="manager_exam_mark_1_col" prefWidth="53.60003662109375" text="Điểm 1" />
+                              <TableColumn fx:id="manager_exam_mark_2_col" prefWidth="69.5999755859375" text="Điểm 2" />
+                              <TableColumn fx:id="manager_exam_mark_3_col" prefWidth="60.79998779296875" text="Điểm 3" />
+                              <TableColumn fx:id="manager_final_exam_mark_col" prefWidth="78.39993286132812" text="ĐIểm cuối kỳ" />
+                           </columns>
+                        </TableView>
+                        <VBox prefHeight="473.0" prefWidth="274.0">
+                           <children>
+                              <Label prefHeight="17.0" prefWidth="159.0" text="Thông tin chi tiết">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <VBox prefWidth="258.0">
+                                 <children>
+                                    <Label text="Mã sinh viên" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="managerUserCodeTextField" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <VBox layoutX="20.0" layoutY="51.0" prefWidth="258.0">
+                                 <children>
+                                    <Label text="Mã môn học" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="managerSubjectCodeTextField" />
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets bottom="10.0" />
+                                 </VBox.margin>
+                              </VBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                 <children>
+                                    <VBox prefWidth="258.0">
+                                       <children>
+                                          <Label text="Điểm chuyên cần" textFill="#0000009b">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="managerAttandenceMarkTextField" />
+                                       </children>
+                                    </VBox>
+                                    <VBox layoutX="10.0" layoutY="10.0" prefWidth="258.0">
+                                       <children>
+                                          <Label text="Điểm 1" textFill="#0000009b">
+                                             <VBox.margin>
+                                                <Insets bottom="5.0" />
+                                             </VBox.margin>
+                                          </Label>
+                                          <TextField fx:id="managerExamMark1TextField" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <VBox layoutX="20.0" layoutY="233.0" prefWidth="258.0">
+                                 <children>
+                                    <HBox prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                                       <children>
+                                          <VBox prefWidth="258.0">
+                                             <children>
+                                                <Label text="Điểm 2" textFill="#0000009b">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="managerExamMark2TextField" />
+                                             </children>
+                                          </VBox>
+                                          <VBox layoutX="10.0" layoutY="10.0" prefWidth="258.0">
+                                             <children>
+                                                <Label text="Điểm 3" textFill="#0000009b">
+                                                   <VBox.margin>
+                                                      <Insets bottom="5.0" />
+                                                   </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="managerExamMark3TextField" />
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <Label text="Điểm cuối kỳ" textFill="#0000009b">
+                                       <VBox.margin>
+                                          <Insets bottom="5.0" />
+                                       </VBox.margin>
+                                    </Label>
+                                    <TextField fx:id="managerFinalMarkTextField" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0">
+                                 <children>
+                                    <Button mnemonicParsing="false" onMouseClicked="#onClickAddManagerButton" prefHeight="26.0" prefWidth="74.0" text="Thêm" />
+                                    <Button layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickUpdateManagerButton" prefHeight="26.0" prefWidth="82.0" text="Cập nhật" />
+                                    <Button layoutX="56.0" layoutY="10.0" mnemonicParsing="false" onMouseClicked="#onClickDeleteManagerButton" prefHeight="26.0" prefWidth="77.0" text="Xóa" />
+                                 </children>
+                                 <opaqueInsets>
+                                    <Insets />
+                                 </opaqueInsets>
+                              </HBox>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </children>
+                  </HBox>
+               </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+	</children>
+</GridPane>
