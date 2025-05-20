@@ -23,7 +23,11 @@ public class DaoTaoScraper {
     public DaoTaoScraper(Page page) {
         this.page = page;
     }
-
+    
+    /**
+    * Lấy thông tin danh sách học kỳ
+    * @return Danh sách học kỳ
+    */
     public List<ElementHandle> fetchSemesterList() {
         try {
             page.navigate(Constants.URL_DAO_TAO_VNUA_TKB_TUAN);
@@ -35,10 +39,22 @@ public class DaoTaoScraper {
             return page.querySelectorAll(SEMESTER_DROP_DOWN_SELECTOR);
         } catch (Exception e) {
             e.printStackTrace();
-            return List.of(); // Trả về list rỗng thay vì null
+            return List.of();
         }
     }
 
+    /**
+     * Lấy thông tin ngày bắt đầu của học kỳ
+     * Lấy danh sách tuần trong combo box tuần học
+     * 
+     * Lấy id của item đầu tiên trong danh sách vừa lấy được
+     * Kiểm tra ký tự số thứ tự trong id của item sau dấu '-'
+     * 
+     * Nếu là số 0 thì trả về thông tin ngày bắt đầu của item đó luôn
+     * Nếu không thì lấy tuần bắt đầu của item đó và số thứ tự của item đó trong id để tính toán ngày bắt đầu của tuần đầu tiên
+     *
+     * @return Ngày bắt đầu của học kỳ
+     * */
     public LocalDate fetchStartDateOfTerm() {
         try {
             waitForPage();

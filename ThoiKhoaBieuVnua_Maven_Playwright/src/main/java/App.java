@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class App {
 	private static final int TIME_OUT = 3000; // Thời gian chờ (ms)
-	private static final boolean HEADLESS_MODE = true; // Chế độ không hiển thị trình duyệt
+	private static final boolean HEADLESS_MODE = false; // Chế độ không hiển thị trình duyệt
 
 	private Playwright playwright;
 	private Browser browser;
